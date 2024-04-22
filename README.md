@@ -7,7 +7,7 @@
 1. 博客园：[https://www.cnblogs.com/kin-zhang/p/15532655.html](https://www.cnblogs.com/kin-zhang/p/15532655.html)
 2. CSDN：[https://blog.csdn.net/qq_39537898/article/details/121252690](https://blog.csdn.net/qq_39537898/article/details/121252690)
 
-相关参考也列在了博客里，此处重复引用一下，绝大部分code来源于：[https://github.com/ApolloAuto/apollo/tree/master/modules/planning/math/smoothing_spline](https://github.com/ApolloAuto/apollo/tree/master/modules/planning/math/smoothing_spline)
+相关参考也列在了博客里，此处重复引用一下，绝大部分code来源于：[https://github.com/ApolloAuto/apollo/tree/r2.0.0/modules/planning/math/smoothing_spline](https://github.com/ApolloAuto/apollo/tree/r2.0.0/modules/planning/math/smoothing_spline)
 
 ## 使用方式
 
