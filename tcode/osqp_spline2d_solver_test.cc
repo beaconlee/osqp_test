@@ -3,53 +3,83 @@
 
 #include "common/smoothing/osqp_spline2d_solver.h"
 
-#include "common/utils/math.h"
 #include "common/smoothing/matplotlibcpp.h"
+#include "common/utils/math.h"
 
 using namespace common;
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const* argv[])
+{
+  // 这里是多项式的参数
   Eigen::VectorXd a(6), b(6);
+  // a 是 x 坐标， b 是 y 坐标
   a << 0, 1.5, 0.4, -0.03, -0.02, 0.01;
   b << 0.5, 1.5, 0.4, -0.03, 0.05, 0.01;
-  std::cout<<a<<std::endl;
-  auto spline = [](const Eigen::VectorXd& a, const double t) -> double {
+  std::cout << a << std::endl;
+
+  // 这里定义的是样条函数
+  // 使用的是五次多项式来拟合实际的行驶路线
+  auto spline = [](const Eigen::VectorXd& a, const double t) -> double
+  {
     return a[0] + a[1] * t + a[2] * t * t + a[3] * pow(t, 3) +
            a[4] * pow(t, 4) + a[5] * pow(t, 5);
   };
 
-  auto spline_1st = [](const Eigen::VectorXd& a, const double t) -> double {
+  // 函数的一阶导数
+  auto spline_1st = [](const Eigen::VectorXd& a, const double t) -> double
+  {
     return a[1] + 2 * a[2] * t + 3 * a[3] * pow(t, 2) + 4 * a[4] * pow(t, 3) +
            5 * a[5] * pow(t, 4);
   };
 
-  auto spline_2st = [](const Eigen::VectorXd& a, const double t) -> double {
+  // 函数的二阶导数
+  auto spline_2st = [](const Eigen::VectorXd& a, const double t) -> double
+  {
     return 2 * a[2] + 6 * a[3] * t + 12 * a[4] * pow(t, 2) +
            20 * a[4] * pow(t, 3);
   };
 
-  std::vector<double> t_knots{0, 5.0};
+  // 结点的范围，纵向长度是 0 到 5.0
+  // knot（分段点，或称为锚点）：要用knot - 1个多项式来表征整条路径
+  std::vector<double> t_knots{0, 10.0};
+  // segment（细分小段，即每两个锚点之间还要多分几个小段）：主要用来画曲线 & 设置边界条件的。
+  //
 
+  // 创建一个 OSQP 解析器实例
   OsqpSpline2dSolver osqp_spline2d_solver(t_knots, 5);
 
+  // 设置求解函数
   auto mutable_kernel = osqp_spline2d_solver.mutable_kernel();
+  // 设置约束
   auto mutable_constraint = osqp_spline2d_solver.mutable_constraint();
 
+  // 添加二维三阶导数矩阵 Add2dThirdOrderDerivativeMatrix
+  // 对三阶导数设置权重 0.5  也就是加加速度
   mutable_kernel->Add2dThirdOrderDerivativeMatrix(0.5);
 
+  // 时间坐标
   std::vector<double> t_coord;
+  // vector_Eigen = std::vector<T, Eigen::aligned_allocator<T>>;
+  // ref_ft 就是 t 时刻对应的 (x, y) 坐标
   vector_Eigen<Eigen::Vector2d> ref_ft;
+  // 分别保存 t 时刻， x 和 y 的坐标
   std::vector<double> ref_x, ref_y;
   std::vector<double> lat_tol, lon_tol;
   std::vector<double> ref_theta;
-  for (int i = 0; i < 5.0 / 0.25; ++i) {
+
+  for(int i = 0; i < 10.0 / 0.25; ++i)
+  {
     const double param = i * 0.25;
+    //
     t_coord.emplace_back(i * 0.25);
     double x1, y1;
-    if (i == 0 || i == 19) {
+    if(i == 0 || i == 19)
+    {
       x1 = spline(a, param);
       y1 = spline(b, param);
-    } else {
+    }
+    else
+    {
       x1 = spline(a, param); // + NormalDistribution(0, 0.1)
       y1 = spline(b, param); // + NormalDistribution(0, 0.1)
     }
@@ -68,18 +98,28 @@ int main(int argc, char const* argv[]) {
   mutable_constraint->Add2dThirdDerivativeSmoothConstraint();
 
   mutable_constraint->Add2dPointConstraint(
-      0, Eigen::Vector2d(spline(a, 0), spline(b, 0)));
+      0,
+      Eigen::Vector2d(spline(a, 0), spline(b, 0)));
+
   mutable_constraint->Add2dPointDerivativeConstraint(
-      0, Eigen::Vector2d(spline_1st(a, 0), spline_1st(b, 0)));
+      0,
+      Eigen::Vector2d(spline_1st(a, 0), spline_1st(b, 0)));
 
   double t_end = t_coord.back();
-  mutable_constraint->Add2dPointConstraint(
-      t_end, Eigen::Vector2d(spline(a, t_end), spline(b, t_end)));
-  mutable_constraint->Add2dPointDerivativeConstraint(
-      t_end, Eigen::Vector2d(spline_1st(a, t_end), spline_1st(b, t_end)));
 
-  mutable_constraint->Add2dStationLateralBoundary(t_coord, ref_ft, ref_theta,
-                                                  lon_tol, lat_tol);
+  mutable_constraint->Add2dPointConstraint(
+      t_end,
+      Eigen::Vector2d(spline(a, t_end), spline(b, t_end)));
+
+  mutable_constraint->Add2dPointDerivativeConstraint(
+      t_end,
+      Eigen::Vector2d(spline_1st(a, t_end), spline_1st(b, t_end)));
+
+  mutable_constraint->Add2dStationLateralBoundary(t_coord,
+                                                  ref_ft,
+                                                  ref_theta,
+                                                  lon_tol,
+                                                  lat_tol);
 
   auto res = osqp_spline2d_solver.Solve();
   auto res_spline = osqp_spline2d_solver.spline();
@@ -87,26 +127,29 @@ int main(int argc, char const* argv[]) {
   std::vector<double> res_x, res_y;
   std::vector<double> ref_kappa, res_kappa;
 
-  for (auto const t : t_coord) {
+  for(auto const t : t_coord)
+  {
     res_x.emplace_back(res_spline.x(t));
     res_y.emplace_back(res_spline.y(t));
 
-    ref_kappa.emplace_back(ComputeCurvature(spline_1st(a, t), spline_2st(a, t),
+    ref_kappa.emplace_back(ComputeCurvature(spline_1st(a, t),
+                                            spline_2st(a, t),
                                             spline_1st(b, t),
                                             spline_2st(b, t)));
-    res_kappa.emplace_back(ComputeCurvature(
-        res_spline.DerivativeX(t), res_spline.SecondDerivativeX(t),
-        res_spline.DerivativeY(t), res_spline.SecondDerivativeY(t)));
+    res_kappa.emplace_back(ComputeCurvature(res_spline.DerivativeX(t),
+                                            res_spline.SecondDerivativeX(t),
+                                            res_spline.DerivativeY(t),
+                                            res_spline.SecondDerivativeY(t)));
   }
 
   namespace plt = matplotlibcpp;
-  plt::named_plot("ref",ref_x, ref_y, "b-o");
-  plt::named_plot("res",res_x, res_y, "r-o");
+  plt::named_plot("first_ref", ref_x, ref_y, "b-o");
+  plt::named_plot("first_res", res_x, res_y, "r-o");
   plt::legend();
   plt::axis("equal");
   plt::figure();
-  plt::named_plot("ref",t_coord, ref_kappa, "b-o");
-  plt::named_plot("res",t_coord, res_kappa, "r-o");
+  plt::named_plot("second_ref", t_coord, ref_kappa, "b-o");
+  plt::named_plot("second_res", t_coord, res_kappa, "r-o");
   plt::legend();
   plt::show();
 

@@ -1,0 +1,172 @@
+[
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/tcode/osqp_spline2d_solver_test.cc.o -c /home/uan/workspace/osqp_test/tcode/osqp_spline2d_solver_test.cc",
+  "file": "/home/uan/workspace/osqp_test/tcode/osqp_spline2d_solver_test.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/affine_constraint.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/affine_constraint.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/affine_constraint.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/discrete_points_math.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/discrete_points_math.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/discrete_points_math.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/osqp_spline1d_solver.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/osqp_spline1d_solver.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/osqp_spline1d_solver.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/osqp_spline2d_solver.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/osqp_spline2d_solver.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/osqp_spline2d_solver.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/polynomialxd.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/polynomialxd.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/polynomialxd.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline1d_constraint.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_constraint.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_constraint.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline1d_kernel_helper.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel_helper.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel_helper.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline1d_kernel.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline1d_seg.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_seg.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_seg.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline1d.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline2d_constraint.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d_constraint.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d_constraint.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline2d_kernel.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d_kernel.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d_kernel.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline2d_seg.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d_seg.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d_seg.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/smoothing/spline2d.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/utils/math.cc.o -c /home/uan/workspace/osqp_test/common/utils/math.cc",
+  "file": "/home/uan/workspace/osqp_test/common/utils/math.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile2d_test.dir/common/solver/osqp/osqp_interface.cc.o -c /home/uan/workspace/osqp_test/common/solver/osqp/osqp_interface.cc",
+  "file": "/home/uan/workspace/osqp_test/common/solver/osqp/osqp_interface.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/tcode/osqp_spline1d_solver_test.cc.o -c /home/uan/workspace/osqp_test/tcode/osqp_spline1d_solver_test.cc",
+  "file": "/home/uan/workspace/osqp_test/tcode/osqp_spline1d_solver_test.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/affine_constraint.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/affine_constraint.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/affine_constraint.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/discrete_points_math.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/discrete_points_math.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/discrete_points_math.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/osqp_spline1d_solver.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/osqp_spline1d_solver.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/osqp_spline1d_solver.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/osqp_spline2d_solver.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/osqp_spline2d_solver.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/osqp_spline2d_solver.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/polynomialxd.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/polynomialxd.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/polynomialxd.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline1d_constraint.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_constraint.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_constraint.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline1d_kernel_helper.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel_helper.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel_helper.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline1d_kernel.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_kernel.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline1d_seg.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d_seg.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d_seg.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline1d.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline1d.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline1d.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline2d_constraint.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d_constraint.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d_constraint.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline2d_kernel.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d_kernel.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d_kernel.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline2d_seg.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d_seg.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d_seg.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/smoothing/spline2d.cc.o -c /home/uan/workspace/osqp_test/common/smoothing/spline2d.cc",
+  "file": "/home/uan/workspace/osqp_test/common/smoothing/spline2d.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/utils/math.cc.o -c /home/uan/workspace/osqp_test/common/utils/math.cc",
+  "file": "/home/uan/workspace/osqp_test/common/utils/math.cc"
+},
+{
+  "directory": "/home/uan/workspace/osqp_test/build",
+  "command": "/usr/bin/c++  -I/home/uan/workspace/osqp_test -I/usr/include/python3.10 -isystem /usr/local/include/eigen3 -isystem /usr/local/include/osqp -std=gnu++14 -o CMakeFiles/spile1d_test.dir/common/solver/osqp/osqp_interface.cc.o -c /home/uan/workspace/osqp_test/common/solver/osqp/osqp_interface.cc",
+  "file": "/home/uan/workspace/osqp_test/common/solver/osqp/osqp_interface.cc"
+}
+]

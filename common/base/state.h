@@ -4,8 +4,11 @@
 
 #include <Eigen/Core>
 
-namespace common {
-struct State {
+namespace common
+{
+
+struct State
+{
   double s = 0.0;
   double stamp = 0.0;
   double heading = 0.0;
@@ -19,7 +22,8 @@ struct State {
   Eigen::Vector3d frenet_d;
   Eigen::Vector3d frenet_s;
 
-  std::string DebugString() const {
+  std::string DebugString() const
+  {
     std::ostringstream os;
     os << "stamp: " << stamp << ", heading: " << heading
        << ", velocity: " << velocity << ", acceleration: " << acceleration
@@ -31,4 +35,4 @@ struct State {
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 
-}  // namespace common
+} // namespace common

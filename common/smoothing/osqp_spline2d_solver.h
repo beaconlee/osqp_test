@@ -7,10 +7,12 @@
 
 #include "common/smoothing/spline2d_solver.h"
 
-namespace common {
+namespace common
+{
 
-class OsqpSpline2dSolver final : public Spline2dSolver {
- public:
+class OsqpSpline2dSolver final : public Spline2dSolver
+{
+public:
   OsqpSpline2dSolver(const std::vector<double>& t_knots, const uint32_t order);
 
   ~OsqpSpline2dSolver() = default;
@@ -28,4 +30,4 @@ class OsqpSpline2dSolver final : public Spline2dSolver {
   // extract
   const Spline2d& spline() const override;
 };
-}  // namespace common
+} // namespace common

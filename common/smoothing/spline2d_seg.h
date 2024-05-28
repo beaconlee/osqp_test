@@ -8,11 +8,19 @@
 
 #include "common/smoothing/polynomialxd.h"
 
-namespace common {
+namespace common
+{
 
-class Spline2dSeg {
- public:
+//////////////////////////
+/// @brief  Spline2dSeg 存放的是当前路径段的 x,y 以及 x,y 的二阶三阶导
+/// 
+/// @date 2024-05-28
+//////////////////////////
+class Spline2dSeg
+{
+public:
   // order represent the number of parameters (not the highest order);
+  // order 代表参数的数量（不是最高顺序）；
   explicit Spline2dSeg(const uint32_t order);
   explicit Spline2dSeg(const std::vector<double>& x_param,
                        const std::vector<double>& y_param);
@@ -22,6 +30,7 @@ class Spline2dSeg {
                  const std::vector<double>& y_param);
 
   std::pair<double, double> operator()(const double t) const;
+
   double x(const double t) const;
   double y(const double t) const;
   double DerivativeX(const double t) const;
@@ -40,7 +49,7 @@ class Spline2dSeg {
   const PolynomialXd& ThirdDerivativeX() const;
   const PolynomialXd& ThirdDerivativeY() const;
 
- private:
+private:
   PolynomialXd spline_func_x_;
   PolynomialXd spline_func_y_;
   PolynomialXd derivative_x_;
@@ -50,4 +59,4 @@ class Spline2dSeg {
   PolynomialXd third_derivative_x_;
   PolynomialXd third_derivative_y_;
 };
-}  // namespace common
+} // namespace common

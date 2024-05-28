@@ -1,6 +1,5 @@
 /* Copyright 2020 Unity-Drive Inc. All rights reserved */
 
-#pragma once
 
 #include "common/solver/osqp/osqp_interface.h"
 

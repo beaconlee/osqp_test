@@ -8,20 +8,25 @@
 
 #include "common/base/state.h"
 
-namespace common {
+namespace common
+{
 
-class Trajectory : public std::vector<common::State> {
- public:
+class Trajectory : public std::vector<common::State>
+{
+public:
   Trajectory() = default;
   virtual ~Trajectory() = default;
 
-  int GetNearsetIndex(const Eigen::Vector2d& pos) const {
+  int GetNearsetIndex(const Eigen::Vector2d& pos) const
+  {
     int min_index = 0;
     double dis = 0;
     double min_dis = std::numeric_limits<double>::infinity();
-    for (size_t i = 0; i < size(); ++i) {
+    for(size_t i = 0; i < size(); ++i)
+    {
       dis = (data()[i].position - pos).squaredNorm();
-      if (dis < min_dis) {
+      if(dis < min_dis)
+      {
         min_index = i;
         min_dis = dis;
       }
@@ -29,15 +34,18 @@ class Trajectory : public std::vector<common::State> {
     return min_index;
   }
 
-  const common::State& GetNearestState(const Eigen::Vector2d& pos) const {
+  const common::State& GetNearestState(const Eigen::Vector2d& pos) const
+  {
     return data()[GetNearsetIndex(pos)];
   }
 };
 
-inline std::ostream& operator<<(std::ostream& os,
-                                const Trajectory& trajectory) {
+
+inline std::ostream& operator<<(std::ostream& os, const Trajectory& trajectory)
+{
   os << "Trajectory: \n";
-  for (const auto& point : trajectory) {
+  for(const auto& point : trajectory)
+  {
     os << std::fixed << std::setprecision(4) << "[" << std::left
        << "x: " << std::setw(6) << point.position.x() << ", "
        << "y: " << std::setw(6) << point.position.y() << ", "
@@ -48,4 +56,5 @@ inline std::ostream& operator<<(std::ostream& os,
   return os;
 }
 
-}  // namespace common
+
+} // namespace common

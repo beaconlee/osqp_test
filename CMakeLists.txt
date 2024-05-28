@@ -3,6 +3,8 @@ project(common CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 find_package(glog REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(osqp REQUIRED)
