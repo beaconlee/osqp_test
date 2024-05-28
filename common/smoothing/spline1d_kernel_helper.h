@@ -7,17 +7,19 @@
 #include <string>
 #include <unordered_map>
 
-namespace common {
+namespace common
+{
 
-class Spline1dKernelHelper {
- public:
+class Spline1dKernelHelper
+{
+public:
   static Spline1dKernelHelper& Instance();
 
   Eigen::MatrixXd Kernel(const uint32_t spline_order,
                          const uint32_t nth_derivative,
                          const double integral_length);
 
- private:
+private:
   Spline1dKernelHelper();
 
   Spline1dKernelHelper(const Spline1dKernelHelper&) = delete;
@@ -32,7 +34,8 @@ class Spline1dKernelHelper {
                                              const double accumulated_x);
 
   void IntegratedTermMatrix(const uint32_t num_of_params,
-                            const uint16_t derivative, const double x,
+                            const uint16_t derivative,
+                            const double x,
                             Eigen::MatrixXd* term_matrix) const;
 
   void CalculateFx(const uint32_t num_of_params);
@@ -42,7 +45,7 @@ class Spline1dKernelHelper {
 
   void BuildKernelMap();
 
- private:
+private:
   std::unordered_map<std::string, Eigen::MatrixXd> kernel_map_;
 
   Eigen::MatrixXd kernel_fx_;
@@ -50,4 +53,4 @@ class Spline1dKernelHelper {
   Eigen::MatrixXd kernel_second_order_derivative_;
   Eigen::MatrixXd kernel_third_order_derivative_;
 };
-}  // namespace common
+} // namespace common

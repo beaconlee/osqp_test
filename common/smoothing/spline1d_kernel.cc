@@ -70,6 +70,7 @@ void Spline1dKernel::AddNthDerivativekernelMatrix(const uint32_t n,
                                                 n,
                                                 x_knots_[i + 1] - x_knots_[i]) *
         weight;
+
     kernel_matrix_.block(i * spline_param_num_,
                          i * spline_param_num_,
                          spline_param_num_,

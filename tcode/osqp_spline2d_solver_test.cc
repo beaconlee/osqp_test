@@ -95,33 +95,41 @@ int main(int argc, char const* argv[])
 
   mutable_kernel->Add2dReferenceLineKernelMatrix(t_coord, ref_ft, 0.5);
 
+
+
+  // 添加 三阶导数平滑约束
+  // 添加连续平滑约束 三阶
   mutable_constraint->Add2dThirdDerivativeSmoothConstraint();
 
+  // init point constraint
+  // Point Constraint 是添加点约束
   mutable_constraint->Add2dPointConstraint(
       0,
       Eigen::Vector2d(spline(a, 0), spline(b, 0)));
-
+  // 添加导数约束
   mutable_constraint->Add2dPointDerivativeConstraint(
       0,
       Eigen::Vector2d(spline_1st(a, 0), spline_1st(b, 0)));
 
+  // end point constraint
   double t_end = t_coord.back();
-
   mutable_constraint->Add2dPointConstraint(
       t_end,
       Eigen::Vector2d(spline(a, t_end), spline(b, t_end)));
-
   mutable_constraint->Add2dPointDerivativeConstraint(
       t_end,
       Eigen::Vector2d(spline_1st(a, t_end), spline_1st(b, t_end)));
 
+  // 添加横向位置约束
   mutable_constraint->Add2dStationLateralBoundary(t_coord,
                                                   ref_ft,
                                                   ref_theta,
                                                   lon_tol,
                                                   lat_tol);
 
+  // 进行求解
   auto res = osqp_spline2d_solver.Solve();
+  // 获取解的结果
   auto res_spline = osqp_spline2d_solver.spline();
 
   std::vector<double> res_x, res_y;
