@@ -11,32 +11,32 @@ using namespace common;
 int main(int argc, char const* argv[])
 {
   // 这里是多项式的参数
-  Eigen::VectorXd a(6), b(6);
+  Eigen::VectorXd x_coff(6), y_cofff(6);
   // a 是 x 坐标， b 是 y 坐标
-  a << 0, 1.5, 0.4, -0.03, -0.02, 0.01;
-  b << 0.5, 1.5, 0.4, -0.03, 0.05, 0.01;
-  std::cout << a << std::endl;
+  x_coff << 0, 1.5, 0.4, -0.03, -0.02, 0.01;
+  y_cofff << 0.5, 1.5, 0.4, -0.03, 0.05, 0.01;
+  std::cout << x_coff << std::endl;
 
   // 这里定义的是样条函数
   // 使用的是五次多项式来拟合实际的行驶路线
-  auto spline = [](const Eigen::VectorXd& a, const double t) -> double
+  auto spline = [](const Eigen::VectorXd& coff, const double t) -> double
   {
-    return a[0] + a[1] * t + a[2] * t * t + a[3] * pow(t, 3) +
-           a[4] * pow(t, 4) + a[5] * pow(t, 5);
+    return coff[0] + coff[1] * t + coff[2] * t * t + coff[3] * pow(t, 3) +
+           coff[4] * pow(t, 4) + coff[5] * pow(t, 5);
   };
 
   // 函数的一阶导数
-  auto spline_1st = [](const Eigen::VectorXd& a, const double t) -> double
+  auto spline_1st = [](const Eigen::VectorXd& coff, const double t) -> double
   {
-    return a[1] + 2 * a[2] * t + 3 * a[3] * pow(t, 2) + 4 * a[4] * pow(t, 3) +
-           5 * a[5] * pow(t, 4);
+    return coff[1] + 2 * coff[2] * t + 3 * coff[3] * pow(t, 2) +
+           4 * coff[4] * pow(t, 3) + 5 * coff[5] * pow(t, 4);
   };
 
   // 函数的二阶导数
-  auto spline_2st = [](const Eigen::VectorXd& a, const double t) -> double
+  auto spline_2st = [](const Eigen::VectorXd& coff, const double t) -> double
   {
-    return 2 * a[2] + 6 * a[3] * t + 12 * a[4] * pow(t, 2) +
-           20 * a[4] * pow(t, 3);
+    return 2 * coff[2] + 6 * coff[3] * t + 12 * coff[4] * pow(t, 2) +
+           20 * coff[4] * pow(t, 3);
   };
 
   // 结点的范围，纵向长度是 0 到 5.0
@@ -75,15 +75,16 @@ int main(int argc, char const* argv[])
     double x1, y1;
     if(i == 0 || i == 19)
     {
-      x1 = spline(a, param);
-      y1 = spline(b, param);
+      x1 = spline(x_coff, param);
+      y1 = spline(y_cofff, param);
     }
     else
     {
-      x1 = spline(a, param); // + NormalDistribution(0, 0.1)
-      y1 = spline(b, param); // + NormalDistribution(0, 0.1)
+      x1 = spline(x_coff, param);  // + NormalDistribution(0, 0.1)
+      y1 = spline(y_cofff, param); // + NormalDistribution(0, 0.1)
     }
-    double theta = std::atan2(spline_1st(b, param), spline_1st(a, param));
+    double theta =
+        std::atan2(spline_1st(y_cofff, param), spline_1st(x_coff, param));
     std::cout << theta / 3.14 * 180 << std::endl;
     ref_ft.emplace_back(Eigen::Vector2d(x1, y1));
     ref_x.emplace_back(x1);
@@ -105,20 +106,20 @@ int main(int argc, char const* argv[])
   // Point Constraint 是添加点约束
   mutable_constraint->Add2dPointConstraint(
       0,
-      Eigen::Vector2d(spline(a, 0), spline(b, 0)));
+      Eigen::Vector2d(spline(x_coff, 0), spline(y_cofff, 0)));
   // 添加导数约束
   mutable_constraint->Add2dPointDerivativeConstraint(
       0,
-      Eigen::Vector2d(spline_1st(a, 0), spline_1st(b, 0)));
+      Eigen::Vector2d(spline_1st(x_coff, 0), spline_1st(y_cofff, 0)));
 
   // end point constraint
   double t_end = t_coord.back();
   mutable_constraint->Add2dPointConstraint(
       t_end,
-      Eigen::Vector2d(spline(a, t_end), spline(b, t_end)));
+      Eigen::Vector2d(spline(x_coff, t_end), spline(y_cofff, t_end)));
   mutable_constraint->Add2dPointDerivativeConstraint(
       t_end,
-      Eigen::Vector2d(spline_1st(a, t_end), spline_1st(b, t_end)));
+      Eigen::Vector2d(spline_1st(x_coff, t_end), spline_1st(y_cofff, t_end)));
 
   // 添加横向位置约束
   mutable_constraint->Add2dStationLateralBoundary(t_coord,
@@ -140,10 +141,10 @@ int main(int argc, char const* argv[])
     res_x.emplace_back(res_spline.x(t));
     res_y.emplace_back(res_spline.y(t));
 
-    ref_kappa.emplace_back(ComputeCurvature(spline_1st(a, t),
-                                            spline_2st(a, t),
-                                            spline_1st(b, t),
-                                            spline_2st(b, t)));
+    ref_kappa.emplace_back(ComputeCurvature(spline_1st(x_coff, t),
+                                            spline_2st(x_coff, t),
+                                            spline_1st(y_cofff, t),
+                                            spline_2st(y_cofff, t)));
     res_kappa.emplace_back(ComputeCurvature(res_spline.DerivativeX(t),
                                             res_spline.SecondDerivativeX(t),
                                             res_spline.DerivativeY(t),
